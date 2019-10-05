@@ -10,6 +10,15 @@ namespace Task19
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Enter some string");
+            string s = Console.ReadLine();
+            int c = s.Count(Char.IsDigit);
+            if (c > 2)
+            {
+                Console.WriteLine("More then 2");
+            }
+            
+            Console.ReadKey();
         }
     }
 }

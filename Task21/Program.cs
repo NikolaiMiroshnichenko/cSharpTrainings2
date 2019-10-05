@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Task16
+namespace Task21
 {
     class Program
     {
@@ -13,11 +12,9 @@ namespace Task16
         {
             Console.WriteLine("Enter some string");
             string s = Console.ReadLine();
-            string pattern = @"\d\.{1}";
-            if (Regex.IsMatch(s, pattern))
-            {
-                Console.WriteLine("Incorrect number");
-            }
+            s = s.ToLower();
+            Console.WriteLine(s);
+
             Console.ReadKey();
         }
     }

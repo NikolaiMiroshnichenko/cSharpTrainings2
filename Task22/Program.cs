@@ -2,22 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Task16
+namespace Task22
 {
     class Program
     {
         static void Main(string[] args)
         {
+
             Console.WriteLine("Enter some string");
             string s = Console.ReadLine();
-            string pattern = @"\d\.{1}";
-            if (Regex.IsMatch(s, pattern))
-            {
-                Console.WriteLine("Incorrect number");
-            }
+            s = s.ToUpper();
+            Console.WriteLine(s);
+
             Console.ReadKey();
         }
     }
