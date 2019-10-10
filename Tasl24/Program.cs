@@ -2,26 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Tasl24
 {
     class Program
     {
-       
+
         static void Main(string[] args)
         {
+            Console.WriteLine("Enter your email");
             string s = Console.ReadLine();
-            HashSet<string> someSet = new HashSet<string>();
-           string[] words = s.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            for (int i = 0; i < words.Length; i++)
+            string pattern = @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$";
+            if (Regex.IsMatch(s, pattern))
             {
-                someSet.Add(words[i]);
+                Console.WriteLine("Valid password");
+
             }
-            foreach (string v in someSet)
+            else
             {
-                Console.WriteLine(v + " ");
+                Console.WriteLine("Invalid password");
             }
+
             Console.ReadKey();
         }
     }
