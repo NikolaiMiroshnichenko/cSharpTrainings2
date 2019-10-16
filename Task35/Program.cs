@@ -16,6 +16,26 @@ namespace Task35
             fstream.Read(array, 0, array.Length);
             string textFromFile = System.Text.Encoding.Default.GetString(array);
             Console.WriteLine("Текст из файла: " + textFromFile);
+            string[] splitedString = textFromFile.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            int c = 0;
+            for (int i = 0; i < splitedString.Length; i++)
+            {
+                c++;
+            }
+            Console.WriteLine("Count of word is :" + c);
+
+            char[] charsArray = textFromFile.ToCharArray();
+            int g = 0;
+            for (int i = 1; i < charsArray.Length; i++)
+            {
+                if ((charsArray[i] == ' ') && (charsArray[i - 1] == '.'))
+                { 
+                    g++;
+                }
+            }
+            
+            Console.WriteLine("Count of sentences is :" + g+1);
+
             Console.ReadKey();
         }
     }
