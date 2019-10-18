@@ -4,6 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+/*Создай класс Pants (штаны), Shirt (рубашка), у каждого из которых будет только одно свойство 
+  * – поле с названием Color типа enum (создай отдельно enum Color, который имеет только значения
+   * Black,Red,White,Green,Blue). Подумай, что общего между Shirt и Pants. Создай. Отрази эту ситуацию в коде.
+   */
 namespace Task44
 {
     enum Color
@@ -14,17 +19,15 @@ namespace Task44
         Green,
         Blue
     }
-
-    class Clothe
+        class Clothe
     {
-       public Color clotheColor;
+        public Color clotheColor;
     }
 
     class Pants : Clothe
     {
-        
-    }
 
+    }
     class Shirt : Clothe
     {
 
@@ -42,7 +45,6 @@ namespace Task44
             Console.WriteLine(someShirt.clotheColor);
 
             Console.ReadKey();
-
         }
     }
 }
