@@ -8,19 +8,27 @@ namespace Task11
 {
     interface IDateInfo
     {
-        void viewData(DateTime d, out string stringData)
+        public string nowData();
+    }
+
+    class DataVision : IDateInfo
+    {
+        public string  nowData()
         {
-            d = DateTime.Now;
-            stringData = d.ToShortDateString();
+            DateTime dateTime = new DateTime();
+            dateTime = DateTime.Now;
+             string dateTimeString  = dateTime.ToLongDateString();
+            return dateTimeString;
         }
-
-
     }
     class Program
     {
-        
+
         static void Main(string[] args)
         {
+            DataVision dv = new DataVision();
+           Console.WriteLine( dv.nowData());
+            Console.ReadKey();
         }
     }
 }

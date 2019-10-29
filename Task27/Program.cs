@@ -10,7 +10,7 @@ namespace Task27
     {
         static void Main(string[] args)
         {
-            string s = "Asffa qwe sdf asdad dfdfs ASdds dffd Ahfo asdas";
+            string s = "Asffa qwe sdf Asdad dfdfs ASdds dffd Ahfo asdas";
             string [] splitedString  = s.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             int count = splitedString.Count(i => i.StartsWith("A"));
             Console.WriteLine(count);

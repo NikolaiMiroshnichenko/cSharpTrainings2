@@ -9,6 +9,19 @@ namespace Task36
 {
     class Program
     {
+
+        static Dictionary<string, int> GetUniqueWordsOccurance(string[] array)
+        {
+            var result = new Dictionary<string, int>();
+            var uniqueWords = new List<string>(array.Distinct());
+            for (int i = 0; i < uniqueWords.Count; i++)
+            {
+                var count = array.Count(x => x.Equals(uniqueWords[i]));
+                result.Add(uniqueWords[i], count);
+            }
+            return result;
+        }
+
         static void Main(string[] args)
         {
             FileStream file = File.OpenRead(@"C:\13.txt");
@@ -17,28 +30,16 @@ namespace Task36
             string textFromFile = System.Text.Encoding.Default.GetString(array);
             string[] splitedString = textFromFile.Split(new Char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-            Dictionary<int, string> dictionary = new Dictionary<int, string>();
+            var dictionary = GetUniqueWordsOccurance(splitedString);
 
-            for (int i = 0; i < splitedString.Length; i++)
+           /* for (int i = 0; i < splitedString.Length; i++)
             {
-                dictionary.Add(i, splitedString[i]);
-            }
-            foreach (KeyValuePair<int, string> keyValue in dictionary)
+                dictionary.Add(splitedString[i], i);
+            }*/
+
+            foreach (var keyValue in dictionary)
             {
                 Console.WriteLine(keyValue.Key + " - " + keyValue.Value);
-            }
-
-
-            int count(string key)
-            {
-                return dictionary.Where(x => x.Value == key).ToList().Count; ;
-            }
-
-            foreach (string word in dictionary.Values)
-            {
-                count(word);
-                int z = count(word);
-                Console.WriteLine("Repeats of " + word + " is " + z);
             }
 
             Console.ReadKey();

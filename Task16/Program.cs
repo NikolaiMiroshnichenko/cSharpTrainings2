@@ -13,8 +13,12 @@ namespace Task16
         {
             Console.WriteLine("Enter some string");
             string s = Console.ReadLine();
-            string pattern = @"\d\.{1}";
+            string pattern = @"(\d+\.{1}\d+){1}";
             if (Regex.IsMatch(s, pattern))
+            {
+                Console.WriteLine("Float number");
+            }
+            else
             {
                 Console.WriteLine("Incorrect number");
             }

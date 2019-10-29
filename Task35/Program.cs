@@ -22,19 +22,20 @@ namespace Task35
             {
                 c++;
             }
-            Console.WriteLine("Count of word is :" + c);
+            Console.WriteLine("Count of words is : " + c);
 
             char[] charsArray = textFromFile.ToCharArray();
+
             int g = 0;
             for (int i = 1; i < charsArray.Length; i++)
             {
-                if ((charsArray[i] == ' ') && (charsArray[i - 1] == '.'))
+                if ((charsArray[i] == ' ')&&(charsArray[i - 1] == '.'))
                 { 
                     g++;
                 }
             }
-            
-            Console.WriteLine("Count of sentences is :" + g+1);
+            g = g + 1;
+            Console.WriteLine("Count of sentences is : " + g);
 
             Console.ReadKey();
         }

@@ -13,11 +13,11 @@ namespace Task23
         {
             Console.WriteLine("Enter your password");
             string password = Console.ReadLine();
-            string pattern = @"((?=!@#$%^&*)(?=.*[a - z])(?=.*[A - Z]).{ 8,})";
+            string pattern = @"(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&])[a-zA-Z\d@$!%*#?&]{8}";
             if (Regex.IsMatch(password, pattern))
             {
                 Console.WriteLine("Valid password");
-                }
+            }
             else
             {
                 Console.WriteLine("Incorrect password");

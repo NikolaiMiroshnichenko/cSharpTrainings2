@@ -8,13 +8,36 @@ using System.Windows.Documents;
 
 namespace Tasl37
 {
-    class Word
+    public class Word
     {
-        string value;
-        int repeatCount;
+      public string Value { get; set; }
+      public  int RepeatCount { get; set; }
+        public Word (string Value, int RepeatCount)
+        {
+            this.Value = Value;
+            this.RepeatCount = RepeatCount;
+        }
+        public string ToString()
+        {
+            string s = $"Word's properties is: {Value} - {RepeatCount}";
+            return s;
+        }
     }
+
+   
     class Program
     {
+        static Dictionary<string, int> GetUniqueWordsOccurance(string[] array)
+        {
+            var result = new Dictionary<string, int>();
+            var uniqueWords = new List<string>(array.Distinct());
+            for (int i = 0; i < uniqueWords.Count; i++)
+            {
+                var count = array.Count(x => x.Equals(uniqueWords[i]));
+                result.Add(uniqueWords[i], count);
+            }
+            return result;
+        }
 
         static void Main(string[] args)
         {
@@ -24,17 +47,27 @@ namespace Tasl37
             string textFromFile = System.Text.Encoding.Default.GetString(array);
             string[] splitedString = textFromFile.Split(new Char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-            Dictionary<int, string> dictionary = new Dictionary<int, string>();
+            var dictionary = GetUniqueWordsOccurance(splitedString);
 
-            for (int i = 0; i < splitedString.Length; i++)
+            var words = new List<Word>();
+            
+            foreach (var keyValue in dictionary)
             {
-                dictionary.Add(i, splitedString[i]);
+                Console.WriteLine(keyValue.Key + " - " + keyValue.Value);
             }
-            List<Word> words = new List<Word>();
-            foreach (KeyValuePair<int, string> keyValue in dictionary)
+
+            foreach (var KeyValue in dictionary)
             {
-                words.Add(Word word("2",12));
+                Word word = new Word(KeyValue.Key, KeyValue.Value);
+                words.Add(word);
             }
+
+            for (int i = 0; i < words.Count; i++)
+                {
+                Console.WriteLine(words[i].ToString());
+                }
+             
+            Console.ReadKey();
         }
     }
 }
